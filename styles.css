@@ -21,13 +21,26 @@ body {
 
 header {
 	text-align: center;
-	margin: 0 0 3rem;
+	margin: 0 0 1.5rem;
 	max-width: 900px;
+}
+
+.main-eye-container {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 1rem;
+}
+
+.main-eye-icon {
+	width: 80px;
+	height: 80px;
+	filter: brightness(0) invert(1);
 }
 
 h1 {
 	font-size: clamp(2.5rem, 7vw, 3.6rem);
-	margin-bottom: 1rem;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
 }
 
 header p {
@@ -36,17 +49,25 @@ header p {
 	line-height: 1.6;
 }
 
+/* Homepage Grid - Maintained Spacing */
 .vision-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-	gap: clamp(1.5rem, 4vw, 2.5rem);
+	grid-template-columns: repeat(5, 1fr);
+	gap: 1.5rem;
 	width: 100%;
-	max-width: 1280px;
+	max-width: 1400px;
+	margin-top: 1.5rem; 
+}
+
+@media (max-width: 1100px) {
+	.vision-grid {
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	}
 }
 
 .vision-card {
 	background: #111;
-	padding: 2.5rem 1.5rem;
+	padding: 2rem 1.25rem;
 	border-radius: 1.25rem;
 	text-decoration: none;
 	color: inherit;
@@ -54,7 +75,7 @@ header p {
 	transition: all 0.25s ease;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	align-items: flex-start;
 }
 
 .vision-card:hover {
@@ -64,23 +85,24 @@ header p {
 }
 
 .vision-card h2 {
-	margin: 0 0 0.75rem;
-	font-size: clamp(1.8rem, 5vw, 2.3rem);
+	margin: 0 0 0.5rem;
+	font-size: 1.75rem;
 }
 
 .vision-card p {
-	opacity: 0.8;
+	opacity: 0.7;
+	font-size: 0.95rem;
 }
 
 .card-icons {
 	display: flex;
 	gap: 1rem;
-	margin-bottom: 1rem;
+	margin-bottom: 1.5rem;
 }
 
 .icon {
-	width: 40px;
-	height: 40px;
+	width: 36px;
+	height: 36px;
 	filter: brightness(0) invert(1);
 	transition: transform 0.3s ease;
 }
@@ -89,13 +111,14 @@ header p {
 	transform: scale(1.1);
 }
 
+/* Upload Zone */
 #dropZone {
 	border: 3px dashed #555;
 	border-radius: 16px;
-	padding: 4rem 2rem;
+	padding: 3rem 2rem;
 	max-width: 800px;
 	width: 100%;
-	margin: 2rem auto;
+	margin: 0.5rem auto;
 	background: #111;
 	text-align: center;
 	cursor: pointer;
@@ -105,10 +128,12 @@ header p {
 	display: none;
 }
 
+/* Result Spacing - Only applies when comparison is shown */
 #comparison {
 	display: none;
 	width: 100%;
 	max-width: 1000px;
+	margin-top: 3rem; /* Extra gap between upload area and image */
 	margin-bottom: 2rem;
 }
 
@@ -139,10 +164,6 @@ header p {
 .human {
 	z-index: 2;
 	clip-path: inset(0 50% 0 0);
-}
-
-.dog {
-	z-index: 1;
 }
 
 .label {
@@ -181,7 +202,8 @@ header p {
 .back {
 	display: block;
 	text-align: center;
-	margin-top: 1rem;
+	margin-top: 0.5rem;
+	margin-bottom: 1rem;
 	color: #aaa;
 	text-decoration: none;
 }
